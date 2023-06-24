@@ -9,10 +9,6 @@ from runpod.serverless.utils.rp_validator import validate
 
 from schema import INPUT_SCHEMA
 
-import os 
-print("PYTHONPATH:")
-print(os.environ["PYTHONPATH"])
-
 MODEL = inference.Predictor()
 MODEL.setup()
 
