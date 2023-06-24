@@ -24,5 +24,5 @@ COPY handler.py /data/handler.py
 COPY schema.py /data/schema.py
 COPY config.py /data/config.py
 COPY inference.py /data/inference.py
-
-CMD [ "PYTHONPATH=/data/exllama python", "-u", "handler.py" ]
+ENV PYTHONPATH=/data/exllama
+CMD [ "python", "-u", "handler.py" ]
