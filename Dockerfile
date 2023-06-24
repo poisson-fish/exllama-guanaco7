@@ -25,4 +25,5 @@ COPY schema.py /data/exllama/schema.py
 COPY config.py /data/exllama/config.py
 COPY inference.py /data/exllama/inference.py
 
-CMD [ "python", "-u", "/data/exllama/handler.py" ]
+WORKDIR /data/exllama
+CMD [ "python", "-u", "handler.py" ]
