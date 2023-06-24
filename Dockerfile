@@ -20,9 +20,9 @@ RUN pip install --upgrade pip && \
 RUN git clone https://github.com/turboderp/exllama
 RUN pip install -r exllama/requirements.txt
 
-COPY handler.py /data/handler.py
-COPY schema.py /data/schema.py
-COPY config.py /data/config.py
-COPY inference.py /data/inference.py
+COPY handler.py /data/exllama/handler.py
+COPY schema.py /data/exllama/schema.py
+COPY config.py /data/exllama/config.py
+COPY inference.py /data/exllama/inference.py
 
-CMD [ "python", "-u", "/data/handler.py" ]
+CMD [ "python", "-u", "/data/exllama/handler.py" ]
