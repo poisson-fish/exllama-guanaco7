@@ -30,19 +30,19 @@ class Predictor:
         self.model = ExLlama(config)                                 # create ExLlama instance and load the weights
         
         print("Creating cache...")
-        self.cache = ExLlamaCache(model)                             # create cache for inference
+        self.cache = ExLlamaCache(self.model)                             # create cache for inference
         
         print("Creating generator...")
-        self.generator = ExLlamaGenerator(model, tokenizer, cache)   # create generator
+        self.generator = ExLlamaGenerator(self.model, self.tokenizer, self.cache)   # create generator
         # Configure generator
-        generator.disallow_tokens([tokenizer.eos_token_id])
+        self.generator.disallow_tokens([self.tokenizer.eos_token_id])
 
-        generator.settings.token_repetition_penalty_max = token_repetition_penalty_max
-        generator.settings.temperature = temperature
-        generator.settings.top_p = top_p
-        generator.settings.top_k = top_k
-        generator.settings.typical = typical
+        self.generator.settings.token_repetition_penalty_max = token_repetition_penalty_max
+        self.generator.settings.temperature = temperature
+        self.generator.settings.top_p = top_p
+        self.generator.settings.top_k = top_k
+        self.generator.settings.typical = typical
         
     def predict(self, context, prompt):
         
-        return generator.generate_simple(prompt, max_new_tokens = max_new_tokens)
+        return self.generator.generate_simple(prompt, max_new_tokens = max_new_tokens)
