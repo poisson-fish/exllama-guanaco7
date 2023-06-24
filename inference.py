@@ -1,6 +1,6 @@
 from config import repo_name, model_name, model_basename, max_new_tokens, token_repetition_penalty_max, temperature, top_p, top_k, typical
 from huggingface_hub import snapshot_download
-import logging
+import logging, os, glob
 
 class Predictor:
     def setup(self):
