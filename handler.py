@@ -4,13 +4,13 @@ import os
 import inference
 
 import runpod
-import sys
 from runpod.serverless.utils import rp_download, rp_upload, rp_cleanup
 from runpod.serverless.utils.rp_validator import validate
 
 from schema import INPUT_SCHEMA
 
-sys.path.append("/data/exllama")
+import os 
+os.environ["PYTHONPATH"] = "/data/exllama"
 
 MODEL = inference.Predictor()
 MODEL.setup()
